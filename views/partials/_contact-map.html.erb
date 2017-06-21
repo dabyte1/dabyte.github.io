@@ -1,0 +1,29 @@
+<div class="container iframe-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.711387500733!2d26.118219314941864!3d44.41856781062041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1fee2489fab1b%3A0xfd0b8a6bcddc47af!2sStrada+Anastasie+Panu+13%2C+Bucure%C8%99ti!5e0!3m2!1sro!2sro!4v1494858324924" frameborder="0" style="border:0" allowfullscreen class="map-google"></iframe>
+</div>
+<script type="text/javascript">
+// Disable scroll zooming and bind back the click event
+var onMapMouseleaveHandler = function (event) {
+  var that = $(this);
+
+  that.on('click', onMapClickHandler);
+  that.off('mouseleave', onMapMouseleaveHandler);
+  that.find('iframe').css("pointer-events", "none");
+}
+
+var onMapClickHandler = function (event) {
+  var that = $(this);
+
+  // Disable the click handler until the user leaves the map area
+  that.off('click', onMapClickHandler);
+
+  // Enable scrolling zoom
+  that.find('iframe').css("pointer-events", "auto");
+
+  // Handle the mouse leave event
+  that.on('mouseleave', onMapMouseleaveHandler);
+}
+
+// Enable map zooming with mouse scroll when the user clicks the map
+$('.maps.embed-container').on('click', onMapClickHandler);
+</script>

@@ -1,0 +1,49 @@
+<h1 id="page_title">Contact Us</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+    <%= form_for @contact_form do |f| %>
+    <div class="form-group">
+    <%= f.label :'Numele Companiei*' %><br>
+    <%= f.text_field :name, required: true, class: 'form-control' %>
+    </div>
+      </div>
+      <div class="form-group">
+    <%= f.label :'Telefon*' %><br>
+    <%= f.text_field :tel, required: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+    <%= f.label :'Cod unic de inregistrare*' %><br>
+    <%= f.text_field :integer, required: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+    <%= f.label :'Ruta(optional)' %><br>
+    <%= f.text_field :text, as: :text, class: 'form-control-ruta' %>
+      </div>
+      <div class="hidden">
+        <%= f.label :nickname %><br>
+        <%= f.text_field :nickname, hint: 'trebuie sa ramana gol' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :'Persoana de contact*' %><br>
+    <%= f.text_field :text, required: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+    <%= f.label :'Email*' %><br>
+    <%= f.text_field :email, required: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+    <%= f.label :'Destinatia dorita*' %><br>
+    <%= f.text_field :text, required: true, class: 'form-control' %>
+      </div>
+
+    <%= f.submit 'TRIMITE', class: "btn btn-default btn-contact" %> 
+
+    <% end %>
+    </div>
+  </div>  
+</div>
